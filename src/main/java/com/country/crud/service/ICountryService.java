@@ -1,11 +1,11 @@
-package com.country.service;
+package com.country.crud.service;
 
 import java.util.List;
-import com.country.dto.Country;
+import com.country.crud.dto.Country;
 
 public interface ICountryService {
 	
-	public List<Country> listCountry();
+	public List<Country> listCountries();
 	
 	public Country saveCountry(Country country);
 	

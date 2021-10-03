@@ -1,15 +1,22 @@
-package com.country.service;
+package com.country.crud.service;
 
 import java.util.List;
 
-import com.country.dto.Country;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.country.crud.dao.ICountryDAO;
+import com.country.crud.dto.Country;
+
+@Service
 public class CountryServiceImpl implements ICountryService{
-
+	
+	@Autowired
+	ICountryDAO iCountryDAO;
+	
 	@Override
-	public List<Country> listCountry() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Country> listCountries() {
+		return iCountryDAO.findAll();
 	}
 
 	@Override

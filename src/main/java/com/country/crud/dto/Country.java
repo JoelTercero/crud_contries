@@ -1,4 +1,4 @@
-package com.country.dto;
+package com.country.crud.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
