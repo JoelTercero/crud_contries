@@ -33,15 +33,15 @@ public class Country {
 	@Column(name = "languaje")
 	private String languaje;
 	
-	@Column(name = "concurrency")
-	private String concurrency;
+	@Column(name = "currency")
+	private String currency;
 	
 	public Country() {
 		
 	}
 	
 	public Country(Long id, String name, String capital, double latitude, double longitude, int population,
-			String languaje, String concurrency) {
+			String languaje, String currency) {
 		this.id = id;
 		this.name = name;
 		this.capital = capital;
@@ -49,7 +49,7 @@ public class Country {
 		this.longitude = longitude;
 		this.population = population;
 		this.languaje = languaje;
-		this.concurrency = concurrency;
+		this.currency = currency;
 	}
 
 	public Long getId() {
@@ -91,17 +91,17 @@ public class Country {
 	public void setLanguaje(String languaje) {
 		this.languaje = languaje;
 	}
-	public String getConcurrency() {
-		return concurrency;
+	public String getCurrency() {
+		return currency;
 	}
-	public void setConcurrency(String concurrency) {
-		this.concurrency = concurrency;
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 	
 	@Override
 	public String toString() {
 		return "Countries [id=" + id + ", name=" + name + ", capital=" + capital + ", latitude=" + latitude
 				+ ", longitude=" + longitude + ", population=" + population + ", languaje=" + languaje
-				+ ", concurrency=" + concurrency + "]";
+				+ ", currency=" + currency + "]";
 	}
 }

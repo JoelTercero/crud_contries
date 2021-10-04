@@ -21,6 +21,13 @@ public class CountryController {
 	@Autowired
 	CountryServiceImpl countryServiceImpl;
 	
+	@GetMapping("/{id}")
+	public Country getCountryById(@PathVariable(name="id") Long id) {
+		Country countryById = new Country();
+		countryById = countryServiceImpl.getCountryById(id);
+		return countryById;
+	}
+	
 	@GetMapping("/list")
 	public List<Country> listCountries(){
 		return countryServiceImpl.listCountries();
@@ -31,30 +38,21 @@ public class CountryController {
 		return countryServiceImpl.saveCountry(country);
 	}
 	
-	@GetMapping("/{id}")
-	public Country getCountryById(@PathVariable(name="id") Long id) {
+	@PutMapping("/update")
+	public Country updateCountry(@RequestBody Country country) {
 		Country countryById = new Country();
-		countryById = countryServiceImpl.getCountryById(id);
-		return countryById;
-	}
-	
-	@PutMapping("/update/{id}")
-	public Country updateCountry(@PathVariable(name="id") Long id, @RequestBody Country country) {
-		Country countryById = new Country();
-		Country newCountry = new Country();
-		
-		countryById = countryServiceImpl.getCountryById(id);
+		countryById = countryServiceImpl.getCountryById(country.getId());
 		
 		countryById.setCapital(country.getCapital());
-		countryById.setConcurrency(country.getConcurrency());
+		countryById.setCurrency(country.getCurrency());
 		countryById.setLanguaje(country.getLanguaje());
 		countryById.setLatitude(country.getLatitude());
-		countryById.setLongitude(country.getLatitude());
+		countryById.setLongitude(country.getLongitude());
 		countryById.setName(country.getName());
 		countryById.setPopulation(country.getPopulation());
 		
-		newCountry = countryServiceImpl.updateCountry(countryById);
-		return newCountry;
+		countryById = countryServiceImpl.updateCountry(countryById);
+		return countryById;
 	}
 	
 	@DeleteMapping("/delete/{id}")
