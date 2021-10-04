@@ -1,6 +1,7 @@
 package com.country.crud.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,26 +22,22 @@ public class CountryServiceImpl implements ICountryService{
 
 	@Override
 	public Country saveCountry(Country country) {
-		// TODO Auto-generated method stub
-		return null;
+		return iCountryDAO.save(country);
 	}
 
 	@Override
 	public Country updateCountry(Country country) {
-		// TODO Auto-generated method stub
-		return null;
+		return iCountryDAO.save(country);
 	}
 
 	@Override
 	public void deleteCountry(Long id) {
-		// TODO Auto-generated method stub
-		
+		iCountryDAO.deleteById(id);
 	}
 
 	@Override
 	public Country getCountryById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return iCountryDAO.findById(id).get();
 	}
 
 }
